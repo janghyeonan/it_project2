@@ -41,7 +41,7 @@ __-프로젝트 참가자__ : 안장현, 황윤상, 장연철, 김명중, 김태
 ### 7. 끝
  : 프로젝트 2 진행
 ***
-[WBC(작업테이블)](https://docs.google.com/spreadsheets/d/1_-6UIFiMstPwrlULzxo7VZ3VNlhrj4M-SkE4FLL9Ej8/edit#gid=767661967)
+[WBS(작업테이블)](https://docs.google.com/spreadsheets/d/1_-6UIFiMstPwrlULzxo7VZ3VNlhrj4M-SkE4FLL9Ej8/edit#gid=767661967)
 
 ***
 ### - 일정요약 (작성중)
