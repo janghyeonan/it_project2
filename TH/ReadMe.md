@@ -1,6 +1,6 @@
 # * 진행하는 주제
 
-: 억양에 따른 감정분석
+- 억양에 따른 감정분석
 
 # * 부여된 업무
 
@@ -26,5 +26,4 @@
 5. 음성 -> 텍스트 변환하는 예제
  - https://webrtclab.herokuapp.com/speech-recognition/
 
- * 코드
-  : https://github.com/dodortus/webrtc-lab/blob/master/views/examples/speech-recognition/main.js?ts=2
+ - (코드) https://github.com/dodortus/webrtc-lab/blob/master/views/examples/speech-recognition/main.js?ts=2
