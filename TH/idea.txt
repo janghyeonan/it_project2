@@ -1,2 +1,3 @@
 1st : 대박나는 노래에는 공통된 패턴(비밀)이 숨겨져 있을까?(지도학습)
 2nd : 노래만 듣고 컴퓨터는 어느 장르인지 알아 맞출수 있을까?(비지도학습)
+https://www.youtube.com/watch?v=vM5NaGoynjE&feature=youtu.be
