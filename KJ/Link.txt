@@ -1,0 +1,3 @@
+
+- WaveNet blog
+https://deepmind.com/blog/wavenet-generative-model-raw-audio/
