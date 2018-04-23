@@ -1,0 +1,6 @@
+
+- WaveNet blog
+https://deepmind.com/blog/wavenet-generative-model-raw-audio/
+
+- 감정분석 solution: serviced solution
+http://miraeson.com/%EA%B0%90%EC%84%B1%EB%B6%84%EC%84%9D-solution/
