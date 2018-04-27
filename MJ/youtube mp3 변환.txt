@@ -28,7 +28,6 @@ title = {}      # 데이터를 넣을 딕셔너리 선언
 print("url 복사 시작합니다 잠시만 기다려주세요^^")
 
 for i in soup.select('#video-title'):
-                     long -= 1
                      url1.append("https://www.youtube.com"+i.attrs['href'])
                      title[i.attrs['title']]=i.attrs['aria-label'][-16:]
 
