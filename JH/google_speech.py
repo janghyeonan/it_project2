@@ -46,7 +46,7 @@ def st_change(url):
     res =[]
     file_list=glob.glob(url+"/*.wav")
     cnt = len(file_list)
-    for i in file_list[0:5]:
+    for i in file_list:
         start_time = time.time()
         hz = hz_search(i)
         text = s_t(i, hz)
