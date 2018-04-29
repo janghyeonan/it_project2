@@ -33,3 +33,6 @@
 
 #### 6. 구글 클라우드 깃허브에 게시된 파이썬 코드 
  - https://github.com/GoogleCloudPlatform/python-docs-samples
+ 
+#### 7. soundfile 모듈(오디오 파일의 세부정보 추출시 사용, ex.샘플률 16000,48000 등)
+ - https://github.com/bastibe/SoundFile
