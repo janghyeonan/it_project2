@@ -7,14 +7,13 @@ dead line: ~ 4/25
 
 #####
 Text
-Gender(남여에 따른 주파수 대역대가 다름을 고려)
 Sample (Auido file)
 라벨링(화남: A(Angry), 기쁨: J(Joyful), 슬픔: S(Sadness), 싫음: D(Disgust), 중립: N(Natural))
 
 ex)
-사랑해, M, sample1.wav, A
-사랑해, F, sample2.wav, J
-사랑해, F, sample3.wav, S
+사랑해, sample1.wav, A
+사랑해, sample2.wav, J
+사랑해, sample3.wav, S
 
 #####
 
