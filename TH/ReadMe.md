@@ -36,3 +36,7 @@
  
 #### 7. soundfile 모듈(오디오 파일의 세부정보 추출시 사용, ex.샘플률 16000,48000 등)
  - https://github.com/bastibe/SoundFile
+
+#### 8. librosa 사용방법(감정분석시에 사용할 패키지)
+ - https://librosa.github.io/
+ 
