@@ -30,6 +30,7 @@
 #### 5. 음성 -> 텍스트 변환하는 예제
  - https://webrtclab.herokuapp.com/speech-recognition/
  - (코드) https://github.com/dodortus/webrtc-lab/blob/master/views/examples/speech-recognition/main.js?ts=2
+ - https://github.com/jybaek/gcp_speech_api/
 
 #### 6. 구글 클라우드 깃허브에 게시된 파이썬 코드 
  - https://github.com/GoogleCloudPlatform/python-docs-samples
