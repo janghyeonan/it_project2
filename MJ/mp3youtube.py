@@ -21,7 +21,7 @@ import csv
 #driver = webdriver.PhantomJS('c:/python/phantomjs') #팬텀js 드라이버 경로 선언
 driver = webdriver.Chrome("c:/python/chromedriver") # 크롬 드라이버는 경로 설정 해주어야 해요~
     
-driver.get('https://www.youtube.com/channel/UCsEonk9fs_9jmtw9PwER9yg/videos')     # youtube 주소
+driver.get('https://www.youtube.com/channel/UCrwx6JRz13tkmfNvc9iLhMw/videos')     # youtube 주소
 driver.implicitly_wait(10)
     
 body = driver.find_element_by_tag_name("body")
@@ -51,19 +51,20 @@ print('< 총 '+str(len(url1))+'개의 url 이 복사 되었습니다. >')
     
 
 
-
 #################################
 ## mp3 파일정보 csv 데이터 추출 ##
 ################################
 
-def csvfile(save,filename):  # csvsave(저장경로, 파일명)
 
+def csvfile(save,filename):  # csvsave(저장경로, 파일명)
     import csv
-    w=csv.writer(open(str(save)+'/'+str(filename)+".csv", "w"))
-    for r in title.items():
-        w.writerow(r)
+    w=csv.writer(open(str(save)+'/'+str(filename)+".csv", "w",encoding='UTF8'))
+    for key,val in title.items():
+        w.writerow([key,val])
     print(str(filename)+'.csv 파일명으로 '+str(save)+' 경로에 저장 되었습니다.')
-        
+    
+csvfile('C:/python','balad')    
+
 
 """
 ex)
@@ -76,13 +77,12 @@ csvfile('c:/python','아이돌')
 
 def mp3output(url1,indexnum=0):      # mp3output(변환 주소,남은 url number)
     #mp3url="https://www.flvto.biz/kr/downloads/mp3/yt_elRqTV6wUaM/"     # mp3변환 사이트
-    driver = webdriver.Chrome("c:/python/chromedriver")
     driver.get('https://www.flvto.biz/kr/downloads/mp3/yt_elRqTV6wUaM/')
     
     
     long2 = len(url1[indexnum:])
     
-    for j in url1:
+    for j in url1[indexnum:]:
         inputid = driver.find_element_by_id("convertUrl")   # id 값 입력
         inputid.clear()     # 입력박스에 있는 텍스트 지우기
         driver.implicitly_wait(3)
@@ -92,20 +92,25 @@ def mp3output(url1,indexnum=0):      # mp3output(변환 주소,남은 url number
         driver.find_element_by_xpath('//*[@id="convertForm"]/div[2]/button').click()
         driver.implicitly_wait(30)
         print("다운로드")
-        driver.find_element_by_xpath('/html/body/header/div[2]/div/div[2]/div[2]/div[1]/a[1]').click()
-    
+        try:
+          driver.find_element_by_xpath('/html/body/header/div[2]/div/div[2]/div[2]/div[1]/a[1]').click()
+        except WebDriverException:
+            print("error")
     
     
     # 뒤로가기 두번
-        driver.implicitly_wait(10)
+        time.sleep(2)
         driver.back()
-        driver.implicitly_wait(10)
+        time.sleep(2)
         driver.back()
-    
+        time.sleep(1)
         long2 -= 1
         print(str(long2)+'개 남음')
     
     driver.close()
+
+
+
 
 
 
