@@ -5,7 +5,7 @@ import os
 import numpy as np
 import tensorflow as tf
 
-path = '/Users/hbk/data/python-docs-samples/speech/cloud-client/sampling_cut/1_1_S.wav'  # 임의지정(변동바람)
+path = '/Users/hbk/downloads/myRecording01.wav'  # 임의지정(변동바람)
 save_path = '/Users/hbk/data/model/emotion_model'
 
 
@@ -14,7 +14,7 @@ save_path = '/Users/hbk/data/model/emotion_model'
 
 def dataMake(path): # input : 음성파일이 담겨있는 파일경로 ex. "/Users/.../sori.wav"
     # 음성데이터 분석    
-    r,sr = librosa.load(path) # librosa 사용
+    r,sr = librosa.load(path, mono=True, sr=16000) # librosa 사용(모노, 샘플레이트 : 16000)
     mfcc = librosa.feature.mfcc(r,sr)
     a = np.mean(mfcc,axis=1) # 열 평균값 구함
     
