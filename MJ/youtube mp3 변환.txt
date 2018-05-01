@@ -1,0 +1,68 @@
+﻿from bs4 import BeautifulSoup     #BeautifulSoup 임포트
+from selenium import webdriver     #셀레니움 임포트
+from selenium.webdriver.common.keys import Keys     # 스크롤 내리기
+import time
+
+#driver = webdriver.PhantomJS('/home/itwill02/MV/phantomjs') #팬텀js 드라이버 경로 선언
+driver = webdriver.Chrome("/home/itwill02/MV/chromedriver") #크롬 드라이버 경로 선언
+
+driver.get('https://www.youtube.com/user/jypentertainment/videos') #youtube
+driver.implicitly_wait(10)
+
+body = driver.find_element_by_tag_name("body")
+
+num_of_pagedowns = 150            # 150 번 내리기 설정
+
+print("대량파일 추출을 위해 스크롤 내리고 있는 중입니다 잠시만 기다려 주세요^^")
+
+while num_of_pagedowns:
+    body.send_keys(Keys.PAGE_DOWN)
+    time.sleep(0.3)
+    num_of_pagedowns -= 1
+
+soup = BeautifulSoup(driver.page_source, 'html.parser')
+url1 = []     # 리스트 형으로 url 복사
+title = {}      # 데이터를 넣을 딕셔너리 선언
+
+
+print("url 복사 시작합니다 잠시만 기다려주세요^^")
+
+for i in soup.select('#video-title'):
+                     url1.append("https://www.youtube.com"+i.attrs['href'])
+                     title[i.attrs['title']]=i.attrs['aria-label'][-16:]
+
+print('total:'+str(len(url1))+'개 url 복사')
+
+
+driver.implicitly_wait(3)
+
+url="https://www.flvto.biz/kr/downloads/mp3/yt_elRqTV6wUaM/"
+driver.get(url)
+
+long2 = len(url1)
+
+for j in url1:
+    inputid = driver.find_element_by_id("convertUrl")   # id 값 입력
+    inputid.clear()     # 입력박스에 있는 텍스트 지우기
+    driver.implicitly_wait(3)
+    print("url 입력")
+    inputid.send_keys(j)  # 유튜브 url 주소 입력
+
+    print("MP3 변환")
+    driver.find_element_by_xpath('//*[@id="convertForm"]/div[2]/button').click()
+    driver.implicitly_wait(30)
+    print("다운로드")
+    driver.find_element_by_xpath('/html/body/header/div[2]/div/div[2]/div[2]/div[1]/a[1]').click()
+    
+        
+
+# 뒤로가기 두번
+    driver.implicitly_wait(10)
+    driver.back()
+    driver.implicitly_wait(10)
+    driver.back()
+
+    long2 -= 1
+    print(str(long2)+'개 남음')
+
+driver.close()
