@@ -20,7 +20,7 @@ def arrayStack(path): # input : 경로값 (ex. 'Users/.../')
     y = np.arange(1)
     
     for i in files:
-        label = i.split('.')[0].split('_')[2] # 파일명에서 감정부분 추출 -> 숫자로 임의부여
+        label = i.split('.')[0].split('_')[-1] # 파일명에서 감정부분 추출 -> 숫자로 임의부여
         if label == 'S': # 슬픔
             l = 0
         elif label == 'N': # 중립
