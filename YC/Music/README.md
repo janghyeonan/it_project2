@@ -2,7 +2,7 @@
 
 
 INPUT_DIRECTORY=/home/itwill02/바탕화면/it/rnb    # 학습시킬 노래 넣어둔 파일 \
-SEQUENCES_TFRECORD=/home/itwill02/바탕화면/it/notesequences.tfrecord      # tfrecord파일 생성할 곳 \
+SEQUENCES_TFRECORD=/tmp/notesequences.tfrecord      # tfrecord파일 생성할 곳 \
 
 tfrecord파일 생성 \
 convert_dir_to_note_sequences \
