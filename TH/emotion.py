@@ -16,7 +16,7 @@ model_path = "/Users/hbk/data/model/"
 
 def arrayStack(path): # input : 경로값 (ex. 'Users/.../')
     files = os.listdir(path) # 해당경로 폴더에 담긴 wav 파일목록 저장
-    x = np.arange(20)
+    x = np.arange(128)
     y = np.arange(1)
     
     for i in files:
@@ -30,9 +30,10 @@ def arrayStack(path): # input : 경로값 (ex. 'Users/.../')
         elif label == 'A': # 화남
             l = 3   
             
-        r,sr = librosa.load(path+i) # librosa 사용
-        mfcc = librosa.feature.mfcc(r,sr)
-        a = np.mean(mfcc,axis=1) # 열 중간값 구함
+        r,sr = librosa.load(path+i,mono=True, sr=16000) # librosa 사용(모노, 샘플레이트 : 16000)
+        mel = librosa.feature.melspectrogram(y=r, sr=sr) # 음성에는 melspectrogram이 좋다고 해서 
+        #mfcc = librosa.feature.mfcc(r,sr)
+        a = np.mean(mel,axis=1) # 열 중간값 구함
         
         x = np.vstack([x,a]) # 적재
         y = np.vstack([y,np.array(l)]) # 적재
@@ -64,13 +65,13 @@ def dataSet(x,y): # x : 데이터값, y : 라벨값
 ## model 생성
 
 def emotionModel(x_train,y_train,model_path): # model_path : model 저장할 위치 입력
-    X = tf.placeholder(tf.float32, [None, 20])
+    X = tf.placeholder(tf.float32, [None, 128])
     Y = tf.placeholder(tf.int32, [None, 1])  
     
     Y_one_hot = tf.one_hot(Y, 4)  # 감정 4가지
     Y_one_hot = tf.reshape(Y_one_hot, [-1, 4]) 
     
-    W = tf.Variable(tf.random_normal([20, 4]), name='weight1')
+    W = tf.Variable(tf.random_normal([128, 4]), name='weight1')
     b = tf.Variable(tf.random_normal([4]), name='bias1')
 
     logits = tf.matmul(X, W) + b
@@ -104,13 +105,13 @@ def emotionModel(x_train,y_train,model_path): # model_path : model 저장할 위
 
 ## model 검증
 def modelTest(x_test,y_test,save_path):
-    X = tf.placeholder(tf.float32, [None, 20])
+    X = tf.placeholder(tf.float32, [None, 128])
     Y = tf.placeholder(tf.int32, [None, 1])  
     
     Y_one_hot = tf.one_hot(Y, 4)  # 감정 4가지
     Y_one_hot = tf.reshape(Y_one_hot, [-1, 4]) 
     
-    W = tf.Variable(tf.random_normal([20, 4]), name='weight1')
+    W = tf.Variable(tf.random_normal([128, 4]), name='weight1')
     b = tf.Variable(tf.random_normal([4]), name='bias1')
 
     logits = tf.matmul(X, W) + b

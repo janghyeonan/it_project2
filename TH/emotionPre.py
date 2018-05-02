@@ -15,11 +15,12 @@ save_path = '/Users/hbk/data/model/emotion_model'
 def dataMake(path): # input : 음성파일이 담겨있는 파일경로 ex. "/Users/.../sori.wav"
     # 음성데이터 분석    
     r,sr = librosa.load(path, mono=True, sr=16000) # librosa 사용(모노, 샘플레이트 : 16000)
-    mfcc = librosa.feature.mfcc(r,sr)
-    a = np.mean(mfcc,axis=1) # 열 평균값 구함
+    mel = librosa.feature.melspectrogram(y=r, sr=sr)
+    #mfcc = librosa.feature.mfcc(r,sr)
+    a = np.mean(mel,axis=1) # 열 평균값 구함
     
     from sklearn.preprocessing import normalize
-    data = normalize(a.reshape(1,20))
+    data = normalize(a.reshape(1,128))
     
     return data
 
@@ -28,9 +29,9 @@ def dataMake(path): # input : 음성파일이 담겨있는 파일경로 ex. "/Us
 ## 기존의 훈련모델을 불러와서 결과값 예측(감정예측)
 
 def emotionPre(data,save_path): # data : dataMake(), save_path : 학습모델 저장된 경로 및 모델명
-    X = tf.placeholder(tf.float32, [None, 20])
+    X = tf.placeholder(tf.float32, [None, 128])
 
-    W = tf.Variable(tf.random_normal([20, 4]), name='weight1')
+    W = tf.Variable(tf.random_normal([128, 4]), name='weight1')
     b = tf.Variable(tf.random_normal([4]), name='bias1')
 
     logits = tf.matmul(X, W) + b
