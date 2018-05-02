@@ -8,10 +8,10 @@ from google.cloud.speech import enums
 from google.cloud.speech import types
 import soundfile as sf
 
-def trans(sound):
+def trans(path,sound):
     os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = '/Users/hbk/data/speech_key.json'
     client = speech.SpeechClient()
-    file_name = '/Users/hbk/data/python-docs-samples/speech/cloud-client/sampling_cut/'+sound
+    file_name = path+sound
     
     with io.open(file_name, 'rb') as audio_file:
         content = audio_file.read()
@@ -29,29 +29,16 @@ def trans(sound):
         res = result.alternatives[0].transcript
     return res
 
+def display():
+    path = input("폴더경로를 입력하시오 : ")
+    sound = input("음성파일을 입력하시오 : ")
+    return path,sound
 
-def soundJar(word):
-    dic = {}
-    worda
-    
+
 if __name__ == '__main__':
-    
-    print(trans('1_1_A.wav'))
-
-
-lst = []
-lst.append(trans('test.wav'))
-lst
-
-구글 ai 
-
-os.listdir('/Users/hbk/data/python-docs-samples/speech/cloud-client/sampling_cut')
-import glob
-glob.glob('/Users/hbk/data/python-docs-samples/speech/cloud-client/sampling_cut/*.wav')
-os.getcwd()
-
-import soundfile as sf
-f = sf.SoundFile('/Users/hbk/data/python-docs-samples/speech/cloud-client/sampling_cut/1_1_A.wav')
-print('samples = {}'.format(len(f)))
-print('sample rate = {}'.format(f.samplerate))
-print('seconds = {}'.format(len(f) / f.samplerate))
+    path, sound = display()
+    #path = '/Users/hbk/data/python-docs-samples/speech/cloud-client/file/'
+    #sound = 'test.wav'
+    print("음성파일 문자로 변환중...")
+    res = trans(path,sound)
+    print("\n변환결과 :",res)
