@@ -21,7 +21,7 @@ performance_rnn_create_dataset \
 --input=/tmp/notesequences.tfrecord \
 --output_dir=/tmp/performance_rnn/sequence_examples \
 --eval_ratio=0.10
-# 데이터 셋을 형성 
+# 데이터 셋을 형성!!! 10 %가 평가 컬렉션에 저장 90 %는 교육 컬렉션에 저장
 
 
 
