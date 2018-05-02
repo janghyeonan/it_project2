@@ -2,9 +2,31 @@
 같은 단어, 다른 억양의 샘플 수집 후 파이썬 데이터프레임화 시키기
 dead line: ~ 4/25
 
+
+어떠한 형태로 샘플링 데이터를 정리할 것인가?
+
+#####
 Text
 Sample (Auido file)
-라벨링(화남: A(Anger), 기쁨: J(Joy), 슬픔: S(Sadness), 싫음: D(Disgust), 공포: F(Fear))
+라벨링(화남: A(Angry), 기쁨: J(Joyful), 슬픔: S(Sadness), 싫음: D(Disgust), 중립: N(Natural))
+
+ex)
+사랑해, sample1.wav, A
+사랑해, sample2.wav, J
+사랑해, sample3.wav, S
+
+#####
+
+1. 중의적 의미를 내포한 단어들을 추려내어 다양한 의미로 음성녹음
+2. 샘플링한 데이터를 라벨링함
+3. 분석에 사용 할 수 있는 형태로 변환, 저장
+
+
+  
+
+양자화(Quantization): Sampling을 analogue -> digital
+Sampling -> Quantization -> Encoding
+
 
 
 음향신호의 구성
