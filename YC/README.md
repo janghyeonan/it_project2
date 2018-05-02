@@ -13,4 +13,4 @@
     mfcc값을 추출하기 위해 wav형식으로 전환
 
 5. wav파일에서 mfcc값 추출하는 작업 : \
-    it_project.py
+    it_project.py 
