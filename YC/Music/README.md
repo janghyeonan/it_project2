@@ -1,31 +1,30 @@
 #1차 한곡으로 만든결과 10곡입니다.
 
 
-INPUT_DIRECTORY=/home/itwill02/바탕화면/it/rnb    #노래 끌어올곳 \ 
-SEQUENCES_TFRECORD=/home/itwill02/바탕화면/it/notesequences.tfrecord #tfrecord파일 생성할 곳 \ 
+INPUT_DIRECTORY=/home/itwill02/바탕화면/it/rnb    #노래 끌어올곳 \
+SEQUENCES_TFRECORD=/home/itwill02/바탕화면/it/notesequences.tfrecord #tfrecord파일 생성할 곳 \
 
-파일 시동걸기 \ 
+파일 시동걸기 \
 
-
-convert_dir_to_note_sequences \ 
---input_dir=$INPUT_DIRECTORY  \ 
---output_file=$SEQUENCES_TFRECORD  \ 
+convert_dir_to_note_sequences \
+--input_dir=$INPUT_DIRECTORY  \
+--output_file=$SEQUENCES_TFRECORD  \
 --recursive
 
 
-학습,테스트 나누기 \ 
+학습,테스트 나누기 \
 
-melody_rnn_create_dataset \ 
---config=attention_rnn \ 
---input=/tmp/notesequences.tfrecord  \ 
---output_dir=/tmp/melody_rnn/sequence_examples  \ 
+melody_rnn_create_dataset \
+--config=attention_rnn \
+--input=/tmp/notesequences.tfrecord  \
+--output_dir=/tmp/melody_rnn/sequence_examples  \
 --eval_ratio=0.10
 
 
 
 
 
-학습시키기 \ 
+학습시키기 \
 
 melody_rnn_train \
 --config=attention_rnn \
