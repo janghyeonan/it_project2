@@ -43,6 +43,7 @@ def arrayStack(path): # input : 경로값 (ex. 'Users/.../')
     return x[1:], y[1:]
 
 
+
 ## 훈련 및 테스트 데이터셋 세팅
     
 def dataSet(x,y): # x : 데이터값, y : 라벨값
@@ -64,9 +65,9 @@ def dataSet(x,y): # x : 데이터값, y : 라벨값
 
 ## 데이터 분석(MLPClassifier)
 
-def mlpc(): # 훈련 및 검증결과 출력이후 모델을 리턴
+def mlpc(x,y): # 훈련 및 검증결과 출력이후 모델을 리턴
     
-    global x_train, y_train, x_test, y_test 
+    x_train, y_train, x_test, y_test = dataSet(x,y)
     
     # 훈련을 통해 모델을 생성
     mlp_multilabel = MLPClassifier(hidden_layer_sizes=(128,128), max_iter=1000, random_state=None).fit(x_train, y_train)
