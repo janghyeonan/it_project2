@@ -59,4 +59,5 @@ timidity 경로 \
 
 
 
-그리고 1차학습 결과물
+그리고 1차학습 결과물 \
+tf파일의 경우는 https://drive.google.com/file/d/17LgjQul1sOAUc0cg47NidSbySTDPpEux/view?usp=sharing
