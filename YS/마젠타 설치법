@@ -7,6 +7,8 @@ https://magenta.tensorflow.org/
 conda명령어를 사용해서 설치할 수 있다면 
 최대한 그렇게 해라 
 최악의 경우 나처럼 밤새 설치에만 매달릴 수 있다
+ 
+
 
 get the code를 클릭하여 들어간다
           그러면 깃허브가 나온다 
@@ -16,9 +18,10 @@ conda create -n magenta python=자신의 버전 jupyter
        예)conda create -n magenta python=3.6 jupyter
 
 
-
+일반버전도 설치해야 gpu버전도 사용이 가능하다 찾아봐도 그런 글이 안보일거다 
+명심하고 꼭 해야한다 
 source activate magenta
-
+pip install magenta
 sudo apt-get install build-essential libasound2-dev libjack-dev
 
 pip install magenta-gpu   
