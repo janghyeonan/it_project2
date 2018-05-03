@@ -42,7 +42,7 @@ def hz_search(url):
     return frames_per_second
 
 #음성파일 위치를 넣어주면 제목과 컬럼별(컬럼속 변환 텍스트도들어가 있음)로 짤라서 리스트형으로 리턴해준다.
-def st_change2(url): 
+def st_change2(url):
     res =[]
     file_list=glob.glob(url+"/*.wav")
     cnt = len(file_list)
@@ -77,11 +77,11 @@ def st_change(url):
     if text == []:
         text = '음성이 인식되지 않았습니다.'
     return text[0]
-        
+
 if __name__=='__main__':
-    st_change('/Users/janghyeonan/pj2/wav') # 음악 파일 경로를 적어준다. 다수의 파일들
-    st_change('/Users/janghyeonan/flask/tmp/sound.wav') #한개의 파일
+    #st_change2('/Users/janghyeonan/pj2/wav') # 음악 파일 경로를 적어준다.
+    #st_change('/Users/janghyeonan/flask/tmp/sound.wav') #한개의 파일
+    st_change('/Users/janghyeonan/Downloads/1.wav')  # 한개의 파일
 
-
-
-
+    hz_search('/Users/janghyeonan/Downloads/2.wav')
+    s_t('/Users/janghyeonan/Downloads/2.wav', 16000)
