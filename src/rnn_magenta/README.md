@@ -2,4 +2,21 @@
 
 ## 각 항목별 설명
 
+
+### Magenta_step File
+#### 경로 설정 
+$ INPUT_DIRECTORY=/home/itwill02/바탕화면/it/rnb       # 학습시킬 노래 넣어둔 파일 \
+$ SEQUENCES_TFRECORD=/tmp/notesequences.tfrecord    # tfrecord파일 생성할 곳 
+
+#### tfrecord_create.txt : tfrecord 파일 생성 코드
+#### train_test_divide.txt : 학습,테스트 나누는 코드
+#### train.txt : 학습시키는 코드
+#### create.txt : 새로운 멜로디 뽑는 코드
+
+
+#### midi재생시켜 보기 
+
+
+
+
 ### 결과물 통합과정 거쳐야 할듯함.
