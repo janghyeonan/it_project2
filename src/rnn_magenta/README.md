@@ -12,8 +12,7 @@
      ※ 크롤링시 파일 다운로드 경로와 추후 마젠타 가동시에 사용할 input경로를 동일하게 지정해 주어야 한다.
 
 ### |-- 3. Magenta_step File : 준비된 데이터셋(Midi file)과 셋팅된  마젠타를 가지고 음악파일(Midi file)을 생성하는 방법
-#### 경로 설정 
-
+    --경로 설정 
     $ INPUT_DIRECTORY=/home/itwill02/바탕화면/it/rnb       # 학습시킬 노래 넣어둔 파일 \
     $ SEQUENCES_TFRECORD=/tmp/notesequences.tfrecord    # tfrecord파일 생성할 곳 
 
