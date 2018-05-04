@@ -40,11 +40,10 @@
     
     
 ### |-- 5. Result_midi File : 결과물 
-    
-    -- 파일설명 : 
-    zip file: 4종류의 midi 파일  : 각각 classic, rap, RnB, pop 장르의 10곡씩 결과물을 내어 보았다.
-    
-    wav file : 창작의 결과물인 midi 파일들을 goldwave라는 프로그램을 이용하여 합쳐 보았다. (drum_rnn,attetion_rnn사용)
+   
+    -- 파일설명 : 
+    zip file: 4종류의 midi 파일  : 각각 classic, rap, RnB, pop 장르의 10곡씩 결과물을 내어 보았다.
+    wav file : 창작의 결과물인 midi 파일들을 goldwave라는 프로그램을 이용하여 합쳐 보았다. (drum_rnn,attetion_rnn사용)
 
     
 
