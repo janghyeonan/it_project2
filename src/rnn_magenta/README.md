@@ -21,9 +21,9 @@ train.txt : 학습시키는 코드
 create.txt : 새로운 멜로디 뽑는 코드
 
 ### Result file : 결과물 들어보기
-midi 파일 재생시켜 보기 \
+midi 파일 재생시켜 보기 
 
-$ sudo apt install timidity # timidity라는 패키지 이용 \ 
+$ sudo apt install timidity # timidity라는 패키지 이용 \
 $ timidity {PATH} # PATH는 생성한 Midi파일의 경로를 지정해 준다.
 
 
