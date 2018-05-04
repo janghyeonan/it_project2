@@ -2,16 +2,16 @@
 
 
 INPUT_DIRECTORY=/home/ys/pop2         
-#ÆÄÀÏÀÌ ÀÖ´Â µğ·ºÅä¸® 
+#íŒŒì¼ì´ ìˆëŠ” ë””ë ‰í† ë¦¬ 
 
 SEQUENCES_TFRECORD=/tmp/notesequences.tfrecord
-#¾Æ¿ôÇ²ÀÌ ÀúÀåµÇ´Â °æ·Î¿Í ÆÄÀÏ¸í
+#ì•„ì›ƒí’‹ì´ ì €ì¥ë˜ëŠ” ê²½ë¡œì™€ íŒŒì¼ëª…
 
 convert_dir_to_note_sequences \
   --input_dir=$INPUT_DIRECTORY \
   --output_file=$SEQUENCES_TFRECORD \
   --recursive
-# ÄÁ¹öÆÃ
+# ì»¨ë²„íŒ…
 
 
 
@@ -20,7 +20,7 @@ drums_rnn_create_dataset \
 --input=/tmp/notesequences.tfrecord \
 --output_dir=/tmp/drums_rnn/sequence_examples \
 --eval_ratio=0.10
-# µ¥ÀÌÅÍ ¼ÂÀ» Çü¼º!!! 10 %°¡ Æò°¡ ÄÃ·º¼Ç¿¡ ÀúÀå 90 %´Â ±³À° ÄÃ·º¼Ç¿¡ ÀúÀå
+# ë°ì´í„° ì…‹ì„ í˜•ì„±!!! 10 %ê°€ í‰ê°€ ì»¬ë ‰ì…˜ì— ì €ì¥ 90 %ëŠ” êµìœ¡ ì»¬ë ‰ì…˜ì— ì €ì¥
 
 
 drums_rnn_train \
@@ -40,3 +40,4 @@ drums_rnn_generate \
 --num_outputs=10 \
 --num_steps=128 \
 --primer_drums="[(36, 42), (), (42,)]"
+# ë“œëŸ¼ë¹„íŠ¸ 
