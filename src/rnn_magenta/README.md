@@ -9,20 +9,20 @@
 $ INPUT_DIRECTORY=/home/itwill02/바탕화면/it/rnb       # 학습시킬 노래 넣어둔 파일 \
 $ SEQUENCES_TFRECORD=/tmp/notesequences.tfrecord    # tfrecord파일 생성할 곳 
 
-#### tfrecord파일 생성 
+#### tfrecord파일 생성 tfrecord_create.txt
 $ convert_dir_to_note_sequences \
 --input_dir=$INPUT_DIRECTORY \
 --output_file=$SEQUENCES_TFRECORD \
 --recursive
 
-#### 학습,테스트 나누기 
+#### 학습,테스트 나누기 train_test_divide.txt
 $ melody_rnn_create_dataset \
 --config=attention_rnn \
 --input=/tmp/notesequences.tfrecord \
 --output_dir=/tmp/melody_rnn/sequence_examples \
 --eval_ratio=0.10
 
-#### 학습시키기 
+#### 학습시키기 train.txt
 $ melody_rnn_train \
 --config=attention_rnn # 사용할 rnn종류 선택 \
 --run_dir=/tmp/melody_rnn/logdir/run1   # 진행과정 저장할 파일 설정 \
@@ -31,7 +31,7 @@ $ melody_rnn_train \
 --num_training_steps=20000   # 학습횟수 지정
 --eval
 
-#### 새로운 멜로디 뽑는 코드 
+#### 새로운 멜로디 뽑는 코드 create.txt
 $ melody_rnn_generate \
 --config=attention_rnn \
 --run_dir=/tmp/melody_rnn/logdir/run1 \
@@ -43,7 +43,6 @@ $ melody_rnn_generate \
 
 
 #### midi재생시켜 보기 
-
 $ sudo apt install timidity \ 
 timidity 경로 
 
