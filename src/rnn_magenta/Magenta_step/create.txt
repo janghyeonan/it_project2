@@ -2,7 +2,7 @@ $melody_rnn_generate \
   --config=attention_rnn \
   --run_dir=/tmp/melody_rnn/logdir/run1 \
   --output_dir=/tmp/melody_rnn/generated \
-  --num_outputs=10 \
-  --num_steps=128 \
-  --hparams="batch_size=64,rnn_layer_sizes=[64,64]" \
-  --primer_melody="[60]" 
+  --num_outputs=10 # 몇개의 파일을 생성할 것인지 지정 \
+  --num_steps=128 # 몇개의 음을 찍어낼것인지 지정 \ 
+  --hparams="batch_size=64,rnn_layer_sizes=[64,64]" # 앞에서 사용했던 사이즈 그대로 적어주면 된다. \
+  --primer_melody="[60]" # 마젠타의 경우 첫음을 지정해 주어야 한다.
