@@ -17,7 +17,7 @@ crawling.py : 크롤링 방법 \
 $ INPUT_DIRECTORY=/home/itwill02/바탕화면/it/rnb       # 학습시킬 노래 넣어둔 파일 \
 $ SEQUENCES_TFRECORD=/tmp/notesequences.tfrecord    # tfrecord파일 생성할 곳 
 
-tfrecord 파일 생성 코드 > 학습,테스트 나누는 코드 > 학습시키는 코드 > 새로운 멜로디 뽑는 코드
+create.txt : tfrecord 파일 생성 코드 > 학습,테스트 나누는 코드 > 학습시키는 코드 > 새로운 멜로디 뽑는 코드
 
 ### |-- 4. Result File : 결과물 들어보기
 midi 파일 재생시켜 보기 
@@ -26,6 +26,3 @@ $ sudo apt install timidity # timidity라는 패키지 이용 \
 $ timidity {PATH} # PATH는 생성한 Midi파일의 경로를 지정해 준다.
 
 
-
-
-### 결과물 통합과정 거쳐야 할듯함.
