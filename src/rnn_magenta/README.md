@@ -2,7 +2,7 @@
 
 미디파일들을 수집하여 데이터 셋을 만들고 이것을 머신러닝(RNN)을 이용해 새로운 창작물을 만들어 내는것.
 
-## https://github.com/tensorflow/magenta 에 올려진 내용을 기반으로 음악파일(Midi file)을 생성
+https://github.com/tensorflow/magenta 에 올려진 내용을 기반으로 음악파일(Midi file)을 생성
 
 
 ## 각 항목별 설명
