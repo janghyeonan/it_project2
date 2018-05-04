@@ -5,45 +5,47 @@
 
 ### magenta_step 파일의 txt파일을 보고 따라하면된다.
 
-#### 경로 설정 \
-$ INPUT_DIRECTORY=/home/itwill02/바탕화면/it/rnb       # 학습시킬 노래 넣어둔 파일 
-$ SEQUENCES_TFRECORD=/tmp/notesequences.tfrecord    # tfrecord파일 생성할 곳 \
+#### 경로 설정 
+$ INPUT_DIRECTORY=/home/itwill02/바탕화면/it/rnb       # 학습시킬 노래 넣어둔 파일 \
+$ SEQUENCES_TFRECORD=/tmp/notesequences.tfrecord    # tfrecord파일 생성할 곳 
 
-#### tfrecord파일 생성 \
-$ convert_dir_to_note_sequences 
---input_dir=$INPUT_DIRECTORY 
---output_file=$SEQUENCES_TFRECORD 
+#### tfrecord파일 생성 
+$ convert_dir_to_note_sequences \
+--input_dir=$INPUT_DIRECTORY \
+--output_file=$SEQUENCES_TFRECORD \
 --recursive
 
-#### 학습,테스트 나누기 \
-$ melody_rnn_create_dataset 
---config=attention_rnn 
---input=/tmp/notesequences.tfrecord 
---output_dir=/tmp/melody_rnn/sequence_examples 
+#### 학습,테스트 나누기 
+$ melody_rnn_create_dataset \
+--config=attention_rnn \
+--input=/tmp/notesequences.tfrecord \
+--output_dir=/tmp/melody_rnn/sequence_examples \
 --eval_ratio=0.10
 
-#### 학습시키기 \
-$ melody_rnn_train 
---config=attention_rnn # 사용할 rnn종류 선택
---run_dir=/tmp/melody_rnn/logdir/run1   # 진행과정 저장할 파일 설정 
---sequence_example_file=/tmp/melody_rnn/sequence_examples/eval_melodies.tfrecord # 학습, 테스트 나누었던곳의 파일 위치
---hparams="batch_size=64,rnn_layer_sizes=[64,64],learning_rate = 0.0001" # 배치사이즈, 레이어수, learning_rate, drop수 전부 조절 가능하다 
+#### 학습시키기 
+$ melody_rnn_train \
+--config=attention_rnn # 사용할 rnn종류 선택 \
+--run_dir=/tmp/melody_rnn/logdir/run1   # 진행과정 저장할 파일 설정 \
+--sequence_example_file=/tmp/melody_rnn/sequence_examples/eval_melodies.tfrecord # 학습, 테스트 나누었던곳의 파일 위치 \
+--hparams="batch_size=64,rnn_layer_sizes=[64,64],learning_rate = 0.0001" # 배치사이즈, 레이어수, learning_rate, drop수 전부 조절 가능하다 \
 --num_training_steps=20000   # 학습횟수 지정
 --eval
 
-#### 새로운 멜로디 뽑는 코드 \
-$ melody_rnn_generate 
---config=attention_rnn 
---run_dir=/tmp/melody_rnn/logdir/run1 
---output_dir=/tmp/melody_rnn/generated 
---num_outputs=10   # 몇개의 파일을 생성할 것인지 지정 
---num_steps=128 # 몇개의 음을 찍어낼것인지 지정 \ --hparams="batch_size=64,rnn_layer_sizes=[64,64]" # 앞에서 사용했던 것 그대로 적어주면 된다.
+#### 새로운 멜로디 뽑는 코드 
+$ melody_rnn_generate \
+--config=attention_rnn \
+--run_dir=/tmp/melody_rnn/logdir/run1 \
+--output_dir=/tmp/melody_rnn/generated \
+--num_outputs=10   # 몇개의 파일을 생성할 것인지 지정 \
+--num_steps=128 # 몇개의 음을 찍어낼것인지 지정 \ 
+--hparams="batch_size=64,rnn_layer_sizes=[64,64]" # 앞에서 사용했던 것 그대로 적어주면 된다. \
 --primer_melody="[60]" # 마젠타의 경우 첫음을 지정해 주어야 한다.
 
 
-#### midi재생시켜 보기 \
+#### midi재생시켜 보기 
 
-$ sudo apt install timidity \ timidity 경로 \
+$ sudo apt install timidity \ 
+timidity 경로 
 
 
 
