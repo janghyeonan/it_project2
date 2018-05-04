@@ -1,7 +1,0 @@
-$melody_rnn_train 
-  --config=attention_rnn # 사용할 rnn종류 선택 \
-  --run_dir=/tmp/melody_rnn/logdir/run1 # 진행과정 저장할 파일 설정  \
-  --sequence_example_file=/tmp/melody_rnn/sequence_examples/eval_melodies.tfrecord # 학습, 테스트 나누었던곳의 파일 위치 \
-  --hparams="batch_size=64,rnn_layer_sizes=[64,64],learning_rate = 0.0001" # 배치사이즈, 레이어수, learning_rate, drop수 전부 조절 가능 \ 
-  --num_training_steps=20000 # 학습횟수 지정 \
-  --eval
