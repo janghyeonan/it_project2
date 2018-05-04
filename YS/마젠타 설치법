@@ -92,7 +92,6 @@ attention_rnn.
 마젠타가 있는 경로에 옮겨야한다 
 /home/ys/anaconda3/lib/python3.6/site-packages/magenta/magenta/models/melody_rnn
 
-깃허브의 다른 rnn에 들어가보면 이런 파일목록이 나온다
 
 
 
